@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <h1>Signup</h1>
+    {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form action="/signup" method="post" enctype="multipart/form-data">
+        First Name: <input type="text" name="first_name" required><br>
+        Last Name: <input type="text" name="last_name" required><br>
+        Profile Picture: <input type="file" name="profile_pic" required><br>
+        Username: <input type="text" name="username" required><br>
+        Email: <input type="email" name="email" required><br>
+        Password: <input type="password" name="password" required><br>
+        Confirm Password: <input type="password" name="confirm_password" required><br>
+        Address Line 1: <input type="text" name="address_line1" required><br>
+        City: <input type="text" name="city" required><br>
+        State: <input type="text" name="state" required><br>
+        Pincode: <input type="text" name="pincode" required><br>
+        User Type: 
+        <select name="user_type" required>
+            <option value="Patient">Patient</option>
+            <option value="Doctor">Doctor</option>
+        </select><br><br>
+        <button type="submit">Signup</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login here</a></p>
+</body>
+</html>
