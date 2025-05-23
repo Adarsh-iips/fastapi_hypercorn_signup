@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Blog</title>
+</head>
+<body>
+    <h2>Create New Blog Post</h2>
+    <form action="/doctor/blog/create" method="post" enctype="multipart/form-data">
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Image:</label><br>
+        <input type="file" name="image_url" required><br><br>
+
+        <label>Category:</label><br>
+        <select name="category" required>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Heart Disease">Heart Disease</option>
+            <option value="Covid-19">Covid-19</option>
+            <option value="Immunization">Immunization</option>
+        </select><br><br>
+
+        <label>Summary (max 15 words):</label><br>
+        <textarea name="summary" required></textarea><br><br>
+
+        <label>Content:</label><br>
+        <textarea name="content" required></textarea><br><br>
+
+        <label>Save as Draft?</label>
+        <input type="checkbox" name="is_draft"><br><br>
+
+        <button type="submit">Submit Blog</button>
+    </form>
+</body>
+</html>
