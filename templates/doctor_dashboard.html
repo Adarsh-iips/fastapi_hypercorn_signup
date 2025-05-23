@@ -4,12 +4,32 @@
     <title>Doctor Dashboard</title>
 </head>
 <body>
-    <h1>Welcome, Dr. {{ user.first_name }} {{ user.last_name }}</h1>
+    <h2>Welcome, Dr. {{ user.first_name }} {{ user.last_name }}</h2>
     <img src="/{{ user.profile_pic }}" alt="Profile Picture" width="150" /><br><br>
+    
     <p><strong>First Name:</strong> {{ user.first_name }}</p>
     <p><strong>Last Name:</strong> {{ user.last_name }}</p>
     <p><strong>Username:</strong> {{ user.username }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
     <p><strong>Address:</strong> {{ user.address_line1 }}, {{ user.city }}, {{ user.state }}, {{ user.pincode }}</p>
+    
+    <a href="/doctor/blog/create">Create New Blog Post</a> |
+    <a href="/logout">Logout</a>
+
+    <h3>Your Blog Posts</h3>
+    {% if blogs %}
+        <ul>
+        {% for blog in blogs %}
+            <li>
+                <h4>{{ blog.title }} ({{ blog.category }})</h4>
+                <img src="{{ blog.image }}" alt="Blog Image" width="150"><br>
+                <p><strong>Summary:</strong> {{ blog.summary }}</p>
+                <p><strong>Status:</strong> {{ "Draft" if blog.is_draft else "Published" }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No blogs uploaded yet.</p>
+    {% endif %}
 </body>
 </html>
