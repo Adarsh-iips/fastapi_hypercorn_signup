@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts - {{ category }}</title>
+</head>
+<body>
+    <h2>{{ category }} Blogs</h2>
+    {% if blogs %}
+        <ul>
+        {% for blog in blogs %}
+            <li>
+                <h3>{{ blog.title }}</h3>
+                <img src="{{ blog.image }}" alt="Blog Image" width="150"><br>
+                <p>
+                    {{ blog.summary.split()[:15]|join(" ") }}
+                    {% if blog.summary.split()|length > 15 %}...{% endif %}
+                </p>
+                <hr>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No published blogs in this category.</p>
+    {% endif %}
+</body>
+</html>
