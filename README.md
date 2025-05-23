@@ -31,7 +31,7 @@ f. Pydantic – Data validation
 
 g. HTML/CSS – Frontend templating
 
-i. MYSQL WorkBench- To handle MySQL Database for different users like patient and doctor.
+h. MYSQL WorkBench- To handle MySQL Database for different users like patient and doctor.
 
 Launch the Project in Minutes:
 1. Install all required packages
