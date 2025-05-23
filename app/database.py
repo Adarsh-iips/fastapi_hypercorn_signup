@@ -1,11 +1,18 @@
-# Simulated in-memory database using a list
-users_db = []
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base, Session
 
-def add_user(user_data: dict):
-    users_db.append(user_data)
+# Example MySQL connection URI
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:dewas%40123@127.0.0.1/fastapi_blog"
 
-def find_user_by_username(username: str):
-    return next((user for user in users_db if user["username"] == username), None)
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-def find_user_by_email(email: str):
-    return next((user for user in users_db if user["email"] == email), None)
+Base = declarative_base()
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
