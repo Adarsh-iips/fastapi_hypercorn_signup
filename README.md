@@ -14,6 +14,7 @@ Features:
 
 6. High-performance async server using Hypercorn
 
+7. A  blog system has integrated within the application created earlier. The doctors can upload new blog posts and the patients can view them. 
 
 Technologies Used:
 a. FastAPI – Web framework
@@ -30,6 +31,7 @@ f. Pydantic – Data validation
 
 g. HTML/CSS – Frontend templating
 
+i. MYSQL WorkBench- To handle MySQL Database for different users like patient and doctor.
 
 Launch the Project in Minutes:
 1. Install all required packages
